@@ -1,2 +1,0 @@
-# Horizontal Partitioning - Sharding
-
