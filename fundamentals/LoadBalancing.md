@@ -20,7 +20,15 @@ The process of balancing load evenly on *N* servers is **Load Balancing**.
 
 A properly implemented **load balancer** helps in the following ways:
 
-1. It helps spread traffic across
+1. It helps spread traffic across a cluster of servers to improve responsiveness and availability of applications, websites or databases.
+2. Keeps tract of statuses of all the resources while distributing requests.
+3. Avoids re-routing requests to a server which has the following issues:
+   - elevated rate of errors,
+   - non-responsiveness, and;
+   - request overload.
+4. Prevents single point of failure and increases, availability and responsiveness.
+
+
 
 
 
