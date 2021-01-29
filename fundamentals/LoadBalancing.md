@@ -57,8 +57,11 @@ Ideally, increase in capacity linearly with servers' addition.
 
 #### Types of Load Balancers
 
-1. **Smart Client:** Adding loadbalancer functionality into your client.
+1. **Smart Client:** Adding loadbalancer functionality into your client. The setup process is really difficult.
    ![](https://raw.githubusercontent.com/aditya109/system-design/main/assets/smartclient.svg)
+2. **Hardware Loadbalancer:** Dedicated Hardware for LoadBalancer. The setup process is difficult and is very expensive. For example, *Citrix NetScaler*.
+3. **Software Loadbalancer:** Runs locally on each of these servers and loadbalancer services has a bound port. For example, *HAProxy*, *NginX*, etc.
+
 
 ## Load Balancing Algorithms
 
@@ -75,4 +78,44 @@ Ideally, increase in capacity linearly with servers' addition.
 | Consistent Hashing         | Click [here](#consistent-hashing).                           |
 
 ### Consistent Hashing
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
