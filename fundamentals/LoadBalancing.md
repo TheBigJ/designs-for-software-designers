@@ -28,7 +28,7 @@ A properly implemented **load balancer** helps in the following ways:
    - request overload.
 4. Prevents single point of failure and increases, availability and responsiveness.
 
-![](https://raw.githubusercontent.com/aditya109/system-design/main/assets/lbrole.svg)
+![]()
 
 
 
