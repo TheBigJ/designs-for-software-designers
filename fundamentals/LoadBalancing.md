@@ -28,6 +28,14 @@ A properly implemented **load balancer** helps in the following ways:
    - request overload.
 4. Prevents single point of failure and increases, availability and responsiveness.
 
+![](https://raw.githubusercontent.com/aditya109/system-design/main/assets/lbrole.svg)
+
+
+
+
+
+
+
 
 
 
@@ -42,13 +50,12 @@ A properly implemented **load balancer** helps in the following ways:
 
 ### Least Response Time Method
 
-###         (iii)   Least Bandwidth Method
+### Least Bandwidth Method
 
-###         (iv)   Round Robin Method
+### Round Robin Method
 
-###          (v)   Weighted Round Robin
+### Weighted Round Robin
 
-###         (vi)   IP Hash
+### IP Hash
 
 ### Consistent Hashing
-
