@@ -79,6 +79,54 @@ Ideally, increase in capacity linearly with servers' addition.
 
 ### Consistent Hashing
 
+Concept of balancing load evenly on *N servers* is **load balancing**.
+
+###### **Problem**
+
+Let's say we have a hash function **Φ**, which distributes load amongst our N servers connected in a cyclic manner S<sub>0</sub> => S<sub>1</sub> => S<sub>2</sub> => S<sub>3</sub> => S<sub>0</sub>, and we have *R* requests in-flow, each having random unique IDs, *i<sup>th</sup>* request getting mapped to *R<sub>i</sub>* ID.
+
+So, a request *R<sub>i</sub>* on being hashed through, i.e., **Φ**(R<sub>i</sub>) gets mapped to a server *S<sub>j</sub>*.
+
+Hence, load on j<sup>th</sup> server ~ `R/N` and load factor ~ `1/N`. 
+
+###### Graph for load distribution and load shift
+
+Let's assume *N* = 4 initially, so the load distribution amongst servers is `25%`.
+
+Now, again with increased requests, we can increase the number of servers. Let's say we increase the number of servers by `1`, making the arrangement S<sub>0</sub> => S<sub>1</sub> => S<sub>2</sub> => S<sub>3</sub> => S<sub>4</sub> => S<sub>0</sub>.
+
+Note, the delta shift in load distribution.
+
+Initially, the server S<sub>0</sub> had load of `25%`. 
+But now, since a new server was added, the load distribution of all servers will be forced to `20%`. The problem is `5%` load is reduced from S<sub>0</sub> and added to S<sub>1</sub>.
+
+Now, for the server S<sub>1</sub> which also initially had a load of `25%`, `5%` new load will be added to it, while `10%` old load will be reduced from it, making it `20%` resultant.
+
+Similarly, for S<sub>2</sub> again initially having a load of `25%`, `10%` new load will be added to it, while `15%` old load will be removed, and carried forward to the next server, similarly for S<sub>3</sub>, new load of `15%` will be added, and old load of `20%` will be removed, to make way for server S<sub>4</sub>.
+
+Be it new load addition or old load removal, every move is counted as **𐤃 shift in load distribution**, making it total 
+`+5% + (+5%+10%) + (+10%+15%) + (+15%+20%) + 20% = 100%`.
+
+Truth is request IDs are rarely random, so **Φ**(R<sub>i</sub>) is going to be same for frequent number of times. 
+
+So each time a server is added **𐤃 shift in load distribution** of `100%` is observed, which might not sound as bad, but imagine, each request mapping removal results entails removal of cached data, IP entries, request logs, etc. 
+
+>  As **𐤃 shift in load distribution** increases, data in server cache goes to s**t.
+
+###### Construction of this skewed load
+
+On implementing just one hash function **Φ<sub>1</sub>**, the range of requests r<sub>0</sub>, r<sub>1</sub>, r<sub>2</sub>, r<sub>3</sub>, r<sub>4</sub>, ….. and r<sub>m</sub> gets mapped to respective servers S<sub>0</sub>, S<sub>1</sub>, S<sub>2</sub> and S<sub>3</sub>. 
+
+If even of the servers fails, since load suddenly increases on the next server in RR.
+
+###### Solution to this skewed load architecture
+
+We implement not just one, but multiple hash functions  **Φ<sub>2</sub>**,  **Φ<sub>3</sub>**, etc. Now, we have multiple server mappings. Now even if one of the server fails, multiple servers re-distribute the load amongst themselves.
+
+
+
+
+
 
 
 
