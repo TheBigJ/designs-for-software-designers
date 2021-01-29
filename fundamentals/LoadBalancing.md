@@ -49,6 +49,8 @@ A properly implemented load balancing system can have the following benefits:
 
 Load balancer can be a single point of failure; second load balancer can be connected to form a cluster.
 
+![](https://raw.githubusercontent.com/aditya109/system-design/main/assets/lbredundacy.svg)
+
 
 
 ## Load Balancing Algorithms
