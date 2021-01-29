@@ -51,7 +51,14 @@ Load balancer can be a single point of failure; second load balancer can be conn
 
 ![](https://raw.githubusercontent.com/aditya109/system-design/main/assets/lbredundacy.svg)
 
+Ideally, increase in capacity linearly with servers' addition.
 
+![](https://raw.githubusercontent.com/aditya109/system-design/main/assets/lbcapacity.svg)
+
+#### Types of Load Balancers
+
+1. **Smart Client:** Adding loadbalancer functionality into your client.
+   ![](https://raw.githubusercontent.com/aditya109/system-design/main/assets/smartclient.svg)
 
 ## Load Balancing Algorithms
 
