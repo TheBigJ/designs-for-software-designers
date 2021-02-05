@@ -121,7 +121,7 @@ If even of the servers fails, since load suddenly increases on the next server i
 
 ###### Solution to this skewed load architecture
 
-We implement not just one, but multiple hash functions  **Φ<sub>2</sub>**,  **Φ<sub>3</sub>**, etc. Now, we have multiple server mappings. Now even if one of the server fails, multiple servers re-distribute the load amongst themselves.
+We implement not just one, but multiple hash functions  **Φ<sub>2</sub>**,  **Φ<sub>3</sub>**, etc. Now, we have multiple server mappings. Now even if one of the server fails, multiple servers re-distribute the load amongst themselves. This is called **Consistent hashing**.
 
 
 
