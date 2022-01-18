@@ -121,7 +121,13 @@ The creation of excessive fine-grained microservice leads to, at some point of t
 
 > **The Red Flag Traffic Law**, in 19<sup>th</sup> century US and UK, these laws required a pedestrian to walk in front of each automobile waving a red flag to warn the drivers, consequently resulting in the automobiles being forced to travel at the same speed as a pedestrian.
 
-In organizations, 
+In organizations, despite the intention of using microservices to accelerate development, the organization retains the same process and structure that were used when developing monolithic applications.
+
+If you don't change your organization's software development process and structure, it's likely that you will not benefit from the microservices architecture. Your legacy process and structure will prevent the microservice architecture from accelerating software delivery.
+
+🔰 A better approach would be: *change everything incrementally*
+
+
 
 
 
