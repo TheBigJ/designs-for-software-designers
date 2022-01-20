@@ -127,9 +127,11 @@ If you don't change your organization's software development process and structu
 
 🔰 A better approach would be: *change everything incrementally*
 
+<img src="https://raw.githubusercontent.com/aditya109/designs-for-software-designers/main/assets/success-triangle.svg" style="zoom:150%;" />
 
-
-
+- You must DevOps as your development process, which includes continuous delivery and deployment.
+- You must also restructure your organization into loosely coupled, cross-functional teams- each having a product owner and has all the skills needed to turn concepts into code running in production, owning one or more services. The teams collaborate through APIs.
+- You can change your organization's development process and structure incrementally.
 
 
 
