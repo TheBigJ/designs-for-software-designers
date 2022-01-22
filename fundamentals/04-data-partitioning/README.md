@@ -65,3 +65,4 @@ You see, *sharding* goes way beyond this. It partitions the problematic table(s)
 Let me explain using a real example, MongoDB. So MongoDB supports *horizontal scaling* **TODO**
 
 ![](https://docs.mongodb.com/manual/images/sharded-cluster-production-architecture.bakedsvg.svg)
+
