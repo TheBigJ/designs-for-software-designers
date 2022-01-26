@@ -62,7 +62,62 @@ Horizontal partitioning splits one or more tables by row, usually within a singl
 
 You see, *sharding* goes way beyond this. It partitions the problematic table(s) in the same way, but it does this across potentially *multiple* instances of the schema. The obvious advantage would be that search load for the large partitioned table can now be split across multiple servers, not just multiple indexes on the same logical server.
 
-Let me explain using a real example, MongoDB. So MongoDB supports *horizontal scaling* **TODO**
+Let me explain using a real example, MongoDB. So MongoDB supports *horizontal scaling* TODO:
 
 ![](https://docs.mongodb.com/manual/images/sharded-cluster-production-architecture.bakedsvg.svg)
 
+
+
+
+
+
+
+# Sharding, Data Partitioning
+
+Division of request pool among servers is Data Partitioning.
+
+![](https://raw.githubusercontent.com/aditya109/designs-for-software-designers/main/assets/request-pooling.svg)
+
+There are 3 types of partitioning:
+
+| Types       | Horizontal Paritioning                                       | Vertical Partitioning                                        | Directory-based Partitioning                                 |
+| ----------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Description | Range-based partitioning. Puts different rows into different tables. | Divide data for a specific feature to their own server       | A lookup service that knows the partitioning scheme and abstract away from database access code. <br />Allows addition of database servers or partitioning schemes without impacting applications. |
+| Pros        |                                                              | Straight forward to implement.<br />Low impact on application. |                                                              |
+| Cons        | If the value whose range is used for sharding isn't chosen carefully, the scheme will lead to unbalanced servers. | To support growth of application, database may need  further partitioning. | Can be single point of failure.                              |
+|             | ![](https://raw.githubusercontent.com/aditya109/designs-for-software-designers/main/assets/horizontalpartitioning.svg) | ![](https://raw.githubusercontent.com/aditya109/designs-for-software-designers/main/assets/verticalpartitioning.svg) |                                                              |
+
+## Partitioning criteria
+
+1. **Key or hash-based partitioning**
+   - Φ(key-attribute of entry) = #partition
+   - *Problem*: Addition of new servers ⇒ Redistribution of data and service downtime
+     - Fix: Consistent Hashing
+2. **List partitioning**
+   - Each partition is assigned a list of values
+3. **Round robin partitioning**
+   - With *n* partitions, the tuple<sub>i</sub> is assigned to (partition)<sub>i%n</sub>.
+4. **Composite partitioning**
+   - Combination of the above. E.g., consistent hashing.
+
+## Sharding v/s Partitioning
+
+  ![](https://raw.githubusercontent.com/aditya109/designs-for-software-designers/main/assets/shardingvspartitioning.svg)
+
+In sharding, the schema is replicated across (typically) multiple instances or services, using some kind of identifier/logic to show which instance/server to look for data.
+Here, sharding can be at two levels.
+
+1. **Application level** - Redis, Memcached.
+2. **Data level** - Cassandra, MongoDB, Apache Shard, Hadoop.
+
+## Problems of sharding
+
+1. **Joins and denormalization**:
+   - *Joins will not be performance efficient since data has to be compiled from multiple servers.*
+     - ***Fix***: Denormalize the database so that queries can be performed from a single table ⇒ leads to data inconsistency
+2. **Referential integrity**:
+   - *Difficult to enforce data integrity constraints*.
+     - ***Fix***: Referential integrity is enforced by application code; app can run SQL jobs to clean up dangling references.
+3. **Rebalancing**: 
+   - Necessity of rebalancing, as there is non-uniform data distribution, often times resulting in too much load on one shard.
+     - ***Fix***: Create more database shards or rebalance existing shards changes partitioning scheme and data movement.
