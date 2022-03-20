@@ -1,0 +1,1 @@
+1. [Inside of a browser](https://developer.chrome.com/blog/inside-browser-part1/)
