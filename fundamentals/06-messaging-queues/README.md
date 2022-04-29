@@ -5,6 +5,7 @@ Queues are used to effectively manage requests in large-scale distributed system
 This is an abstraction between the client' request and the actual work performed to solve it.
 
 They are implemented on the asynchronous communication protocol.
+![](https://github.com/aditya109/designs-for-software-designers/raw/main/assets/smsq.svg)
 
 The following is a typical implementation of a system without messaging queue.
 
@@ -19,6 +20,14 @@ The following is a simple implementation of the above.
  ![](https://raw.githubusercontent.com/aditya109/designs-for-software-designers/main/assets/asyncsystemwithmq.svg)
 
 Now the brunt of the load is taken off by the messaging queues.
+
+## Kafka - a scalable option
+
+1. Kafka is fast and uses IO efficiently by batching and compressing records.
+2. Kafka is used by decoupling data streams.
+3. Kafka is used to stream data into data lakes, and RT analysis streams.
+
+4. Kafka clusters retain all published records. If limit is not set, it keeps records until disk space runs out.
 
 
 
