@@ -1,5 +1,11 @@
 # Messaging Queues
 
+Queues are used to effectively manage requests in large-scale distributed system, in which different components of the system may need to work in an asynchronous way.
+
+This is an abstraction between the client' request and the actual work performed to solve it.
+
+They are implemented on the asynchronous communication protocol.
+
 The following is a typical implementation of a system without messaging queue.
 
 ![](https://raw.githubusercontent.com/aditya109/designs-for-software-designers/main/assets/typicalsystemswithoutmq.svg)
@@ -13,4 +19,6 @@ The following is a simple implementation of the above.
  ![](https://raw.githubusercontent.com/aditya109/designs-for-software-designers/main/assets/asyncsystemwithmq.svg)
 
 Now the brunt of the load is taken off by the messaging queues.
+
+
 
