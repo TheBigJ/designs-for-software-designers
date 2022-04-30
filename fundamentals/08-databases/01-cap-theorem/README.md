@@ -8,5 +8,3 @@
 
 C/AP theorem implies, "*only in the presence of a network partition, one has to choose between consistency and availability.*"
 
-## Eventual Consistency
-
