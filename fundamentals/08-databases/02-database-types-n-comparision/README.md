@@ -25,6 +25,7 @@ BASE databases choose availability.
 | *Querying*    | Use SQL for defining and manipulating the data.              | Queries are focused on a collection of documents. UnQL (unstructured query language) is used. Different databases have different syntax. |
 | *Scalability* | Vertical scaling is expensive. Horizontal scaling is time-consuming. | Horizontal scaling is cheap.                                 |
 | *ACID*        | ACID compliant, data is reliable, guarantee of transactions. | Most sacrifice ACID for performance and scalability.         |
+| *Examples*    | Instagram, Stack Overflow, YouTube                           |                                                              |
 
 ## NoSQL databases
 
@@ -38,3 +39,17 @@ BASE databases choose availability.
    - Container for rows.
    - Each rows can be different columns.
 4. **Graph-type**: Neo4J, InfiniteGraph.
+
+## Characteristics of NoSQL databases
+
+The insertions and retrieval are in form of full objects.
+
+| Pros                                 | Cons                              |
+| ------------------------------------ | --------------------------------- |
+| Full object insertion and retrieval  | Not built for update              |
+| Schema is flexible                   | Consistency is a problem here.    |
+| Read times are comparatively slower. | Built-in horizontal partitioning. |
+| Metrics/Aggregation is facilitated.  | Joins are not implicit.           |
+
+### Cassandra - inner working
+
