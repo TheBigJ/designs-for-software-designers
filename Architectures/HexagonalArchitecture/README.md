@@ -11,7 +11,7 @@
 
 
 
-> Note: The actors and the core *speak* different languages. E.g., an external application sends a request over http to perform a core service call (which does not understand what http means); another example is when the core (tech-agnostic) wants to save data into a `mysql` database (which speaks SQL). 
+> Note: The actors and the core *speak* different languages. E.g., an external application sends a request over HTTP to perform a core service call (which does not understand what HTTP means); another example is when the core (tech-agnostic) wants to save data into a `mysql` database (which speaks SQL). 
 
 What helps us to make such translations are *Ports & Adapters*.
 
@@ -30,3 +30,6 @@ What helps us to make such translations are *Ports & Adapters*.
 - ***An adapter for a driven port***, transforms a tech-agnostic request from the core into a specific tech request on the actor
 
 <span style="color:orange">To connect the adapters to the corresponding ports using **Dependency Injection**</span>.
+
+## MinesWeeper API case study
+
